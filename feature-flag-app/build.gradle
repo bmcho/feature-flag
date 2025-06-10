@@ -1,0 +1,18 @@
+plugins{
+    id 'application'
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation project(':feature-flag-usecase')
+    implementation project(':feature-flag-adapter')
+}
+
+tasks.bootRun {
+    systemProperty 'spring.profiles.active', 'local'
+    mainClass = 'com.bmcho.featureflagapp.FeatureFlagAppApplication'
+}
+
+tasks.named('test', Test) {
+    useJUnitPlatform()
+}

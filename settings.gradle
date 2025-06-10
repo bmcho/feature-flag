@@ -1,0 +1,7 @@
+plugins {
+    id 'de.fayard.refreshVersions' version '0.60.5'
+}
+
+rootProject.name = 'feature-flag'
+
+include('feature-flag-app', 'feature-flag-adapter', 'feature-flag-usecase')

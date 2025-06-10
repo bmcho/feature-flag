@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(':feature-flag-usecase')
+}
+
+tasks.bootJar.enabled = false
+
