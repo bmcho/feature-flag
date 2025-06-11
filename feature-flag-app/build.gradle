@@ -1,11 +1,17 @@
 plugins{
     id 'application'
+    id 'com.google.cloud.tools.jib' version '3.4.5'
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation project(':feature-flag-usecase')
     implementation project(':feature-flag-adapter')
+
+
+    //swagger
+    implementation 'io.swagger.core.v3:swagger-annotations:_'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:_'
 }
 
 tasks.bootRun {
@@ -23,7 +29,7 @@ jib {
         image = "amazoncorretto:17"
         platforms {
             platform {
-                architecture = 'arm64'
+                architecture = 'amd64'
                 os = 'linux'
             }
         }

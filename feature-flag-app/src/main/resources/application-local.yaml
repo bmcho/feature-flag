@@ -1,6 +1,6 @@
 spring:
-  #  config:
-  #    import: application-adapter.yaml
+  config:
+    import: application-adapter.yaml
   jpa:
     open-in-view: false
 
@@ -15,7 +15,7 @@ springdoc:
 
 management:
   server:
-     port: 9292
+    port: 9292
   endpoint:
     health:
       probes:
