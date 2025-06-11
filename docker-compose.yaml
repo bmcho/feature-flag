@@ -1,0 +1,31 @@
+services:
+  feature-flag-service:
+    image: feature-flag-app:0.0.1-SNAPSHOT
+    networks:
+      - internal_network
+    depends_on:
+      - feature-flag-engine
+    ports:
+      - "8080:8080"
+    environment:
+      - FEATUREFLAG_ENGINE_HOST=feature-flag-engine
+      - FEATUREFLAG_ENGINE_PORT=8013
+      - CACHE_TYPE=custom # lru / custom
+      - MAX_CACHE_SIZE=10000
+
+  feature-flag-engine:
+    image:  ghcr.io/open-feature/flagd:latest
+    command: start --uri https://raw.githubusercontent.com/bmcho/public-storage/main/example-flags.json
+#    command: start  --uri file:./etc/flagd/example_flags.json
+    volumes:
+      - ./flagd:/etc/flagd
+    networks:
+      - internal_network
+    stdin_open: true
+    tty: true
+    ports:
+      - "8013:8013"
+
+networks:
+  internal_network:
+    driver: bridge
