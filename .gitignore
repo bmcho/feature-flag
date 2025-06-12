@@ -42,3 +42,6 @@ out/
 #grafana
 /grafana/*
 !/grafana/grafana.db
+
+#prometheus
+/prometheus/config/query_log_file.log

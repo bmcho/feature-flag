@@ -25,6 +25,6 @@ public class FlagAdapter implements GetStringValuePort {
 
     @Override
     public String getStringValueWithDefaultValue(GetStringValuePortRequest request, String defaultValue) {
-        return null;
+        return flagdClient.getStringValue(request.getKey(), defaultValue);
     }
 }

@@ -1,18 +1,18 @@
 services:
-#  feature-flag-service:
-#    image: feature-flag-app:0.0.1-SNAPSHOT
-#    ports:
-#      - "8080:8080"
-#      - "9292:9292"
-#    environment:
-#      - FEATUREFLAG_ENGINE_HOST=feature-flag-engine
-#      - FEATUREFLAG_ENGINE_PORT=8013
-#      - CACHE_TYPE=custom # lru / custom
-#      - MAX_CACHE_SIZE=10000
-#    depends_on:
-#      - feature-flag-engine
-#    networks:
-#      - internal_network
+  feature-flag-service:
+    image: feature-flag-app:0.0.1-SNAPSHOT
+    ports:
+      - "8080:8080"
+      - "9292:9292"
+    environment:
+      - FEATUREFLAG_ENGINE_HOST=feature-flag-engine
+      - FEATUREFLAG_ENGINE_PORT=8013
+      - CACHE_TYPE=custom # lru / custom
+      - MAX_CACHE_SIZE=10000
+    depends_on:
+      - feature-flag-engine
+    networks:
+      - internal_network
 
   feature-flag-engine:
     image:  ghcr.io/open-feature/flagd:latest
@@ -24,8 +24,8 @@ services:
       - "8013:8013"
     stdin_open: true
     tty: true
-#    networks:
-#      - internal_network
+    networks:
+      - internal_network
 
   prometheus:
     image: prom/prometheus
@@ -39,8 +39,8 @@ services:
       - '--web.enable-lifecycle'
       - '--config.file=/etc/prometheus/prometheus.yml'
     restart: always
-#    networks:
-#      - internal_network
+    networks:
+      - internal_network
 
   grafana:
     image: grafana/grafana
@@ -50,8 +50,8 @@ services:
     volumes:
       - ./grafana:/var/lib/grafana
     restart: always
-#    networks:
-#      - internal_network
+    networks:
+      - internal_network
 
 networks:
   internal_network:

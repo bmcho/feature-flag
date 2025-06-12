@@ -5,20 +5,11 @@
         </encoder>
     </appender>
 
-    <springProfile name="default">
-        <root level="INFO">
-            <appender-ref ref="CONSOLE"/>
-        </root>
-        <logger name="com.fastcampus.featureflag" level="DEBUG" additivity="false">
-            <appender-ref ref="CONSOLE"/>
-        </logger>
-    </springProfile>
-
     <springProfile name="local">
         <root level="INFO">
             <appender-ref ref="CONSOLE"/>
         </root>
-        <logger name="com.fastcampus.featureflag" level="DEBUG" additivity="false">
+        <logger name="com.bmcho.featureflag" level="DEBUG" additivity="false">
             <appender-ref ref="CONSOLE"/>
         </logger>
     </springProfile>
