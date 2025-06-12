@@ -35,3 +35,10 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# prometheus
+/prometheus/volume
+
+#grafana
+/grafana/*
+!/grafana/grafana.db

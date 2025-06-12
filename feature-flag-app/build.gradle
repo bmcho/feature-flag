@@ -12,6 +12,10 @@ dependencies {
     //swagger
     implementation 'io.swagger.core.v3:swagger-annotations:_'
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:_'
+
+//    // monitoring
+//    implementation 'org.springframework.boot:spring-boot-starter-actuator:_'
+//    implementation 'io.micrometer:micrometer-registry-prometheus:_'
 }
 
 tasks.bootRun {
